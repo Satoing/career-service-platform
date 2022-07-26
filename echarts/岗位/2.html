@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="echarts.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 800px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+    var option;
+
+option = {
+  title: {
+    text: '部分岗位平均薪资对比',
+    subtext: '',
+    left: 'center'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  series: [
+    {                                            
+      name: 'Access From',
+      type: 'pie',
+      radius: '50%',
+      data: [
+        { value: 11377, name: 'C++' },
+        { value: 8275, name:  'Web' },
+        { value: 7891, name: '测试工程师' },
+        { value: 11036, name: '产品经理'},
+        { value: 5767, name: '产品专员' },
+        { value: 7038, name: 'UI设计师' },
+        { value: 5477, name: '网页设计师' },
+        { value: 5086, name: '财务顾问' },
+        { value: 5893, name: '网络运营' },
+        { value: 4667, name:  '客服' }
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="echarts.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 1000px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+    var option;
+
+option = {
+  title: {
+    text: '高校毕业生意向单位信息'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: [
+        '中央国有企业',
+        '民营企业',
+        '大中小学校',
+        '除央企外的国有企业',
+        '党政机关',
+        '除科研机构外的事业单位',
+        '三资企业',
+        '科研机构'
+      ],
+	  axisLabel: {
+            interval: 0,//横轴信息全部显示
+            rotate: -45, //倾斜度 -90 至 90 默认为0
+            margin: 5,
+			},
+      axisTick: {
+        alignWithLabel: true
+      }
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      axisLabel: {
+        min: 0,
+        max: 100,
+        show: true,
+        formatter: '{value}%'
+      }
+    }
+  ],
+  series: [
+    {
+      name: 'Direct',
+      type: 'bar',
+      barWidth: '60%',
+      data: [18.4, 17.4, 16.4, 12.35, 10.9, 10.5, 5.3, 3.1]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+    </script>
+  </body>
+</html>
+
+
+

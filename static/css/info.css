@@ -1,0 +1,42 @@
+@font-face {
+    font-family: Candyhome;
+    src: url("https://npm.elemecdn.com/akilar-blog@1.0.5/fontsdest/Candyhome.ttf");
+}
+body{
+    color: aliceblue;
+    font-family: "HarmonyOS Sans SC";
+    margin: 0;
+    padding: 0 5%;
+    background-color: #17191f
+}
+.overview{
+    height: 300px;
+    background-image:url('/static/images/top.jpg');
+    background-size: 100% 100%;
+    position:relative;
+}
+.infos{
+    position:absolute;
+    left: 5%;
+    top: 30%;
+}
+.title{
+    font-family: Candyhome;
+    font-size: 40px;
+    font-weight: 500;
+}
+.intro{
+    margin-top: 40px;
+    font-size: 14px;
+}
+.content{
+    padding: 10px 5%;
+    background-color: #20232a;
+    margin: 50px 0px;
+}
+.content h2{
+    display: block;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #3f4653;
+    margin-bottom: 0;
+}

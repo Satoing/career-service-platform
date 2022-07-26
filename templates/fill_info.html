@@ -1,0 +1,152 @@
+{% extends "nav_std.html" %}
+{% block title %}完善信息 {% endblock %}
+{%block style%}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/bulma.min.css">
+<style>
+    body{
+        background-color: #17191f;
+        height: 648px;
+        position: relative;
+    }
+    html{
+        font-family: "HarmonyOS Sans SC";
+        font-size: 14px;
+    }
+    .privacy {
+        margin-top: 5px;
+        position: relative;
+        font-size: 12px;
+        bottom: 0%;
+    }
+
+    .privacy a:link {
+        color: #949494;
+        text-decoration: none;
+    }
+
+    .privacy a:visited {
+        color: #949494;
+        text-decoration: none;
+    }
+
+    .privacy a:hover {
+        color: #C1C3C6;
+        transition: color 1s;
+    }
+    .wer{
+        position: absolute;
+        top: 20%;
+        left: 37%;
+        height: 350px;
+    }
+</style>
+{%endblock%}
+{%block content%}
+<div class="wer">
+    <div style="position: relative">
+        <form method="post">
+            <div class="field has-addons has-addons-centered">
+                <p class="control">
+                    <input name="major" class="input" type="text" placeholder="计算机科学与技术">
+                </p>
+                <p class="control">
+                    <a class="button is-static">
+                        你的专业
+                    </a>
+                </p>
+            </div>
+            <br>
+            <div class="field has-addons has-addons-centered">
+                <p class="control">
+        <span class="select">
+          <select name="category">
+            <option value="1">C++程序员</option>
+            <option value="2">Web前端</option>
+            <option value="3">测试工程师</option>
+            <option value="4">产品经理</option>
+              <option value="5">产品专员</option>
+              <option value="6">UI设计</option>
+              <option value="7">网页设计</option>
+              <option value="8">财务</option>
+              <option value="9">网络推广</option>
+              <option value="10">客服</option>
+          </select>
+        </span>
+                </p>
+                <p class="control">
+                    <input name="cat_ratio" class="input" type="text" placeholder="1-5">
+                </p>
+                <p class="control">
+                    <a class="button is-static">
+                        偏好职业
+                    </a>
+                </p>
+            </div>
+            <br>
+            <div class="field has-addons has-addons-centered">
+                <p class="control">
+        <span class="select">
+          <select name="city">
+            <option value="1">北京</option>
+            <option value="2">成都</option>
+            <option value="3">广州</option>
+              <option value="4">杭州</option>
+              <option value="5">厦门</option>
+              <option value="6">上海</option>
+              <option value="7">深圳</option>
+              <option value="8">苏州</option>
+              <option value="9">武汉</option>
+              <option value="10">西安</option>
+          </select>
+        </span>
+                </p>
+                <p class="control">
+                    <input name="city_ratio" class="input" type="text" placeholder="1-5">
+                </p>
+                <p class="control">
+                    <a class="button is-static">
+                        意向城市
+                    </a>
+                </p>
+            </div>
+            <br>
+
+            <div class="field has-addons has-addons-centered">
+                <p class="control">
+        <span class="select">
+          <select name="salary">
+            <option value="1">3-5K</option>
+            <option value="2">6-8K</option>
+            <option value="3">9-12K</option>
+              <option value="4">12-18K</option>
+              <option value="5">15-22K</option>
+              <option value="6">20-30K</option>
+              <option value="7">25-35K</option>
+              <option value="8">30-48K</option>
+              <option value="9">35-50K</option>
+              <option value="10">50-80K</option>
+          </select>
+        </span>
+                </p>
+                <p class="control">
+                    <input name="salary_ratio" class="input" type="text" placeholder="1-5">
+                </p>
+                <p class="control">
+                    <a class="button is-static">
+                        预期薪资
+                    </a>
+                </p>
+            </div>
+            <br>
+            <div class="privacy" style="position: absolute;bottom: 7%;left:15%">
+                <a href="#">请在每一项填入1-5的数字代表这一部分对你的权重</a>
+            </div>
+            <br>
+            <div class="control has-addons has-addons-centered" style="position: absolute;bottom: -10%;left:45%">
+                <button type="submit" class="button is-dark">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

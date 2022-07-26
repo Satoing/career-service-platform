@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职业能力大数据服务平台</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src='/static/js/echarts.min.js'></script>
+    <script src='/static/js/china.js'></script>
+    <style>
+        #china_chart {
+            width: 561px;
+            height: 532px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/school"><div class="school">学校专区</div></a>
+        <div class="title">职业能力大数据服务平台</div>
+        <a href="/student"><div class="student">学生专区</div></a>
+    </header>
+    <section class="mainbox">
+        <div class="column">
+            <div class="panel bar">
+                <h2>
+                    各行业的招聘人数 <a href="javascript:;">2022</a>
+                    <a href="javacript:;"> 2021</a>
+                </h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div style="height: 80px"></div>
+            <div class="panel pie">
+                <h2>招聘的年龄分布</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul>
+                        <li class="showTime"></li>
+                    </ul>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>实时时间</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <div id="china_chart"></div>
+
+                <script>
+                    var china_chart = echarts.init(document.getElementById('china_chart'));
+                    //数据纯属虚构  [{城市:数据,...}]
+                    var data = [{
+                        name: '江苏',
+                        value: 10356
+                    }, {
+                        name: '北京',
+                        value: 12858
+                    }, {
+                        name: '上海',
+                        value: 12679
+                    }, {
+                        name: '重庆',
+                        value: 8814
+                    }, {
+                        name: '河北',
+                        value: 7671
+                    }, {
+                        name: '河南',
+                        value: 8569
+                    }, {
+                        name: '云南',
+                        value: 8488
+                    }, {
+                        name: '辽宁',
+                        value: 7156
+                    }, {
+                        name: '黑龙江',
+                        value: 7141
+                    }, {
+                        name: '湖南',
+                        value: 9208
+                    }, {
+                        name: '安徽',
+                        value: 9011
+                    }, {
+                        name: '山东',
+                        value: 8788
+                    }, {
+                        name: '新疆',
+                        value: 8503
+                    }, {
+                        name: '浙江',
+                        value: 10991
+                    }, {
+                        name: '江西',
+                        value: 8619
+                    }, {
+                        name: '湖北',
+                        value: 9440
+                    }, {
+                        name: '广西',
+                        value: 8596
+                    }, {
+                        name: '甘肃',
+                        value: 7866
+                    }, {
+                        name: '山西',
+                        value: 7496
+                    }, {
+                        name: '内蒙古',
+                        value: 6541
+                    }, {
+                        name: '陕西',
+                        value: 8685
+                    }, {
+                        name: '吉林',
+                        value: 7176
+                    }, {
+                        name: '福建',
+                        value: 8814
+                    }, {
+                        name: '贵州',
+                        value: 8592
+                    }, {
+                        name: '广东',
+                        value: 10410
+                    }, {
+                        name: '青海',
+                        value: 6452
+                    }, {
+                        name: '西藏',
+                        value: 6245
+                    }, {
+                        name: '四川',
+                        value: 9291
+                    }, {
+                        name: '宁夏',
+                        value: 6894
+                    }, {
+                        name: '海南',
+                        value: 8584
+                    }, {
+                        name: '台湾',
+                        value: 8479
+                    }, {
+                        name: '香港',
+                        value: 10256
+                    }, {
+                        name: '澳门',
+                        value: 9851
+                    },
+                        {
+                            name: '天津',
+                            value: 8414
+                        }];
+
+                    var option = {
+                        // title: {
+                        //     show: true,
+                        //     text: '2021第三季度各省会平均工资',
+                        //     left:'center'
+                        // },
+                        tooltip: { //悬浮弹框
+                            show: true,
+                            // formatter: function(params) {//data series里面数据 =[{name:'',value:''},{}]
+                            //     return params.name + '：' + params.value + '人';
+                            // },
+                            formatter: '{a}-{b}:{c}',
+                        },
+                        visualMap: {
+                            left: 'right',
+                            min: 6000,
+                            max: 14000,
+                            inRange: {
+                                color: [
+                                    // "#06f0ab",
+                                    // "#06dcab",
+                                    // "#06c8ab",
+                                    // "#06b4ab",
+                                    "#06a0ab",
+                                    "#0696ab",
+                                    "#0682ab",
+                                    "#066eab",
+                                    "#065aab",
+                                ]
+                            },
+                            // text: ['High', 'Low'],
+                            // calculable: true
+                        },
+                        geo: { //地理坐标系组件 geo:定义地图为china 常用zoom
+                            map: 'china', //地图类型。ECharts 3 中因为地图精度的提高，不再内置地图数据增大代码体积 map/js/china.js
+                            // zoom:1,//视角缩放比例
+                            label: {
+                                show: true
+                            },
+                            emphasis: { //高亮
+                                label: { //地图的标签名字
+                                    show: true
+                                },
+                                itemStyle: { //区域样式 hover样式
+                                    areaColor: 'pink'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: '地图',
+                            type: 'map', //地图
+                            geoIndex: 0, //映射visualMap 颜色配置
+                            data: data
+                        }]
+                    };
+
+                    china_chart.setOption(option);
+                </script>
+            </div>
+        </div>
+        <div class="column">
+            <div class="panel bar1">
+                <h2>各行业的招聘占比</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div style="height: 80px"></div>
+            <div class="panel pie1">
+                <h2>各地区的招聘岗位占比</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/flexible.js"></script>
+    <script src="/static/js/echarts.min.js"></script>
+    <script src="/static/js/china.js"></script>
+    <script src="/static/js/myMap.js"></script>
+
+    <script>
+        // 柱状图1模块
+        (function() {
+            // 实例化对象
+            var myChart = echarts.init(document.querySelector(".bar .chart"));
+            // 指定配置和数据
+            var option = {
+                color: ["#2f89cf"],
+                tooltip: {
+                    trigger: "axis",
+                    axisPointer: {
+                        // 坐标轴指示器，坐标轴触发有效
+                        type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: "0%",
+                    top: "10px",
+                    right: "0%",
+                    bottom: "4%",
+                    containLabel: true
+                },
+                xAxis: [{
+                    type: "category",
+                    data: [
+                        "金融",
+                        "设计",
+                        "运营",
+                        "技术",
+                        "产品",
+                        "销售",
+                    ],
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: "rgba(255,255,255,.6)",
+                            fontSize: "12"
+                        }
+                    },
+                    axisLine: {
+                        show: false
+                    }
+                }],
+                yAxis: [{
+                    type: "value",
+                    axisLabel: {
+                        textStyle: {
+                            color: "rgba(255,255,255,.6)",
+                            fontSize: "12"
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: "rgba(255,255,255,.1)"
+                            // width: 1,
+                            // type: "solid"
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: "rgba(255,255,255,.1)"
+                        }
+                    }
+                }],
+                series: [{
+                    name: "直接访问",
+                    type: "bar",
+                    barWidth: "35%",
+                    data: [200, 300, 300, 900, 1500, 1200, 600],
+                    itemStyle: {
+                        barBorderRadius: 5
+                    }
+                }]
+            };
+
+            // 把配置给实例对象
+            myChart.setOption(option);
+            window.addEventListener("resize", function() {
+                myChart.resize();
+            });
+
+            // 数据变化
+            var dataAll = [{
+                year: "2019",
+                data: [200, 300, 300, 900, 1500, 1200, 600]
+            },
+                {
+                    year: "2020",
+                    data: [300, 400, 350, 800, 1800, 1400, 700]
+                }
+            ];
+
+            document.querySelector(".bar h2").addEventListener("click", function(e) {
+                var i = e.target == this.children[0] ? 0 : 1;
+                option.series[0].data = dataAll[i].data;
+                myChart.setOption(option);
+            });
+        })();
+
+
+
+        // 饼形图定制
+        (function() {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.querySelector(".pie .chart"));
+
+            option = {
+                tooltip: {
+                    trigger: "item",
+                    formatter: "{a} <br/>{b}: {c} ({d}%)",
+                    position: function(p) {
+                        //其中p为当前鼠标的位置
+                        return [p[0] + 10, p[1] - 10];
+                    }
+                },
+                legend: {
+                    top: "90%",
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    data: ["0岁以下", "20-29岁", "30-39岁", "40-49岁", "50岁以上"],
+                    textStyle: {
+                        color: "rgba(255,255,255,.5)",
+                        fontSize: "12"
+                    }
+                },
+                series: [{
+                    name: "年龄分布",
+                    type: "pie",
+                    center: ["50%", "42%"],
+                    radius: ["40%", "60%"],
+                    color: [
+                        "#065aab",
+                        "#066eab",
+                        "#0682ab",
+                        "#0696ab",
+                        "#06a0ab",
+                        "#06b4ab",
+                        "#06c8ab",
+                        "#06dcab",
+                        "#06f0ab"
+                    ],
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [{
+                        value: 1,
+                        name: "0岁以下"
+                    },
+                        {
+                            value: 4,
+                            name: "20-29岁"
+                        },
+                        {
+                            value: 2,
+                            name: "30-39岁"
+                        },
+                        {
+                            value: 2,
+                            name: "40-49岁"
+                        },
+                        {
+                            value: 1,
+                            name: "50岁以上"
+                        }
+                    ]
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            window.addEventListener("resize", function() {
+                myChart.resize();
+            });
+        })();
+        // 学习进度柱状图模块
+        (function() {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.querySelector(".bar1 .chart"));
+
+            var data = [34, 27, 20, 9, 9];
+            var titlename = ["产品", "销售","技术", "设计", "运营"];
+            var valdata = ["", "", "", "", ""];
+            var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
+            option = {
+                //图标位置
+                grid: {
+                    top: "10%",
+                    left: "22%",
+                    bottom: "10%"
+                },
+                xAxis: {
+                    show: false
+                },
+                yAxis: [{
+                    show: true,
+                    data: titlename,
+                    inverse: true,
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: "#fff",
+
+                        rich: {
+                            lg: {
+                                backgroundColor: "#339911",
+                                color: "#fff",
+                                borderRadius: 15,
+                                // padding: 5,
+                                align: "center",
+                                width: 15,
+                                height: 15
+                            }
+                        }
+                    }
+                },
+                    {
+                        show: true,
+                        inverse: true,
+                        data: valdata,
+                        axisLabel: {
+                            textStyle: {
+                                fontSize: 12,
+                                color: "#fff"
+                            }
+                        }
+                    }
+                ],
+                series: [{
+                    name: "条",
+                    type: "bar",
+                    yAxisIndex: 0,
+                    data: data,
+                    barCategoryGap: 50,
+                    barWidth: 10,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: 20,
+                            color: function(params) {
+                                var num = myColor.length;
+                                return myColor[params.dataIndex % num];
+                            }
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: "inside",
+                            formatter: "{c}%"
+                        }
+                    }
+                },
+                    {
+                        name: "框",
+                        type: "bar",
+                        yAxisIndex: 1,
+                        barCategoryGap: 50,
+                        data: [100, 100, 100, 100, 100],
+                        barWidth: 15,
+                        itemStyle: {
+                            normal: {
+                                color: "none",
+                                borderColor: "#00c1de",
+                                borderWidth: 3,
+                                barBorderRadius: 15
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            window.addEventListener("resize", function() {
+                myChart.resize();
+            });
+        })();
+
+
+        // 点位分布统计模块
+        (function() {
+            // 1. 实例化对象
+            var myChart = echarts.init(document.querySelector(".pie1  .chart"));
+            // 2. 指定配置项和数据
+            var option = {
+                legend: {
+                    top: "90%",
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: {
+                        color: "rgba(255,255,255,.5)",
+                        fontSize: "12"
+                    }
+                },
+                tooltip: {
+                    trigger: "item",
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                // 注意颜色写的位置
+                color: [
+                    "#006cff",
+                    "#60cda0",
+                    "#ed8884",
+                    "#ff9f7f",
+                    "#0096ff",
+                    "#9fe6b8",
+                    "#32c5e9",
+                    "#1d9dff"
+                ],
+                series: [{
+                    name: "点位统计",
+                    type: "pie",
+                    // 如果radius是百分比则必须加引号
+                    radius: ["10%", "70%"],
+                    center: ["50%", "42%"],
+                    roseType: "radius",
+                    data: [{
+                        value: 20,
+                        name: "西安"
+                    },
+                        {
+                            value: 26,
+                            name: "北京"
+                        },
+                        {
+                            value: 24,
+                            name: "上海"
+                        },
+                        {
+                            value: 25,
+                            name: "成都"
+                        },
+                        {
+                            value: 20,
+                            name: "武汉"
+                        },
+                        {
+                            value: 25,
+                            name: "杭州"
+                        },
+                        {
+                            value: 30,
+                            name: "深圳"
+                        },
+                        {
+                            value: 42,
+                            name: "广州"
+                        }
+                    ],
+                    // 修饰饼形图文字相关的样式 label对象
+                    label: {
+                        fontSize: 10
+                    },
+                    // 修饰引导线样式
+                    labelLine: {
+                        // 连接到图形的线长度
+                        length: 10,
+                        // 连接到文字的线长度
+                        length2: 10
+                    }
+                }]
+            };
+
+            // 3. 配置项和数据给我们的实例化对象
+            myChart.setOption(option);
+            // 4. 当我们浏览器缩放的时候，图表也等比例缩放
+            window.addEventListener("resize", function() {
+                // 让我们的图表调用 resize这个方法
+                myChart.resize();
+            });
+        })();
+    </script>
+    <script>
+        (function(fn) {
+            fn();
+            setInterval(fn, 1000);
+        })(function() {
+            var dt = new Date();
+            document.querySelector(".showTime").innerText =
+                "7"+" - "+
+                dt.getDate()+" | "+
+                dt.getHours() + " - " +
+                dt.getMinutes() + " - " +
+                dt.getSeconds() + "";
+        });
+    </script>
+
+
+</body>
+
+</html>

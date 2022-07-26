@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Candyhome;
+    src: url("/static/font/Candyhome.ttf");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "HarmonyOS Sans SC";
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-color: #17191f;
+    background-size: cover;
+    /* 行高是字体1.15倍 */
+    line-height: 1.15;
+}
+header {
+    position: relative;
+    height: 66.667px;
+    background: url(../images/head_bg.png) no-repeat top center;
+    background-size: 100% 100%;
+}
+
+header div {
+    margin: 25px 0;
+    font-family: Candyhome;
+    font-size: 20px;
+    color: #fff;
+    display: inline-block;
+    line-height: 0.8rem;
+    position: absolute;
+}
+header .school{
+    left: 30%;
+}
+header .s_title{
+    font-size: 27px;
+    left: 45%;
+    position: absolute;
+    top: 5%;
+}
+header .student{
+    right:30%
+}
+header .login{
+    right:10%;
+    font-size: 17px;
+}
+header .return{
+    left:10%;
+    font-size: 17px;
+}

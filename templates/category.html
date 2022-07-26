@@ -1,0 +1,118 @@
+{% extends "nav_std.html" %}
+{% block title %}职业类型分析 {% endblock %}
+{%block style%}
+<script src="/static/js/echarts.js"></script>
+<style>
+    .text{
+        display: inline-block;
+        font-family: 楷体;
+        width: 400px;
+        color: #FFF;
+        float: right;
+        margin: 100px 250px 0 0;
+    }
+</style>
+{%endblock%}
+{%block content%}
+<div id="main1" style="width: 1200px;height:400px;margin:30px 30px 30px 50px"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main1'));
+
+    // 指定图表的配置项和数据
+    var option;
+
+    option = {
+        title: {
+            text: '部分岗位平均薪资对比',
+            subtext: '',
+            left: 'center'
+        },
+        xAxis: {
+            type: 'category',
+            data: [
+                'C++',
+                'Web',
+                '测试工程师',
+                '产品经理',
+                '产品专员',
+                'UI设计师',
+                '网页设计师',
+                '财务顾问',
+                '网络运营',
+                '客服'
+            ]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [11377, 8275, 7891, 11036, 5767, 7038, 5477, 5086,5893, 4667],
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(180, 180, 180, 0.2)'
+                }
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+<div id="main2" style="width: 600px;height:400px;display: inline-block"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main2'));
+
+    // 指定图表的配置项和数据
+    var option;
+
+    option = {
+        title: {
+            text: '部分岗位平均薪资对比',
+            subtext: '',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'left'
+        // },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: '50%',
+                data: [
+                    { value: 11377, name: 'C++' },
+                    { value: 8275, name:  'Web' },
+                    { value: 7891, name: '测试工程师' },
+                    { value: 11036, name: '产品经理'},
+                    { value: 5767, name: '产品专员' },
+                    { value: 7038, name: 'UI设计师' },
+                    { value: 5477, name: '网页设计师' },
+                    { value: 5086, name: '财务顾问' },
+                    { value: 5893, name: '网络运营' },
+                    { value: 4667, name:  '客服' }
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+
+</script>
+<div class="text">从不同职业的平均薪酬来看，技术岗位和管理岗位的薪酬普遍偏高，而传统行业例如财务管理，客户服务等职务薪资水平与前者有较大差距。但同时 ，不同的行业的专业知识掌握难度不同，求职者可以根据不同的求职计划提升自己的职业素养。</div>
+{%endblock%}

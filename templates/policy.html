@@ -1,0 +1,41 @@
+{% extends "nav_sch.html" %}
+{% block title %}就业政策 {% endblock %}
+{%block style%}
+<style>
+    .post {
+        width: 75%;
+        background-color: #27282d;
+        color: #FFF;
+        padding: 20px 30px;
+        margin: 10px 30px 0 170px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .jt,
+    .salary{
+        display: inline-block;
+        margin: 5px 5px 10px 0;
+        font-family: 楷体;
+    }
+
+    .jt {
+        font-size: 25px;
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>
+{%endblock%}
+{%block content%}
+{% for new in news %}
+<div class="post">
+    <a href="{{new.url}}"><div class="jt">{{new.title}}</div></a>
+    <br>
+    <div class="salary">{{new.date}}</div>
+</div>
+{% endfor %}
+{%endblock%}

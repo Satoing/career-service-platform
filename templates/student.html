@@ -1,0 +1,343 @@
+{% extends "nav_std.html" %}
+{% block title %}/ {% endblock %}
+{%block style%}
+<script src="/static/js/echarts.js"></script>
+<style>
+    .post {
+        width: 45%;
+        color: #FFF;
+        padding: 20px 30px;
+        margin: 10px 30px 0 30px;
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+    }
+
+    .desc{
+        display: inline-block;
+        margin: 5px 5px 10px 0;
+        font-family: 楷体;
+        font-size: 17px;
+    }
+    .text{
+        margin: 100px 80px 100px 100px;
+        width: 25%;
+        background-color: #27282d;
+    }
+    .chart{
+        margin: 80px 30px 0 30px;
+    }
+
+</style>
+{%endblock%}
+{%block content%}
+<div class="post text">
+    <div class="desc">对于约占毕业生总数七成的有找工作意向的高校毕业生来说，毕业后最想去的单位是中央国有企业，有18.4%的毕业生以此作为第一选择；第二位是民营企业，有17.4%的毕业生最想去；第三位是各种类型的大中小学校，16.4%的毕业生以之作为毕业后的理想。再往下依次为央企之外的国有企业，占比12.35%，党政机关占比10.9%，除科研机构以外的事业单位占比10.5%，三资企业占比5.3%，科研机构占比3.1%。</div>
+</div>
+<div class="post chart">
+    <div id="chart1" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart1'));
+
+        // 指定图表的配置项和数据
+        var option;
+
+        option = {
+            title: {
+                text: '高校毕业生意向单位信息'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [
+                        '中央国有企业',
+                        '民营企业',
+                        '大中小学校',
+                        '除央企外的国有企业',
+                        '党政机关',
+                        '除科研机构外的事业单位',
+                        '三资企业',
+                        '科研机构'
+                    ],
+                    axisLabel: {
+                        interval: 0,//横轴信息全部显示
+                        rotate: -45, //倾斜度 -90 至 90 默认为0
+                        margin: 5,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        min: 0,
+                        max: 100,
+                        show: true,
+                        formatter: '{value}%'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: 'Direct',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [18.4, 17.4, 16.4, 12.35, 10.9, 10.5, 5.3, 3.1]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+</div>
+
+
+<div class="post chart">
+
+    <div id="chart2" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart2'));
+
+        // 指定图表的配置项和数据
+        var option;
+
+        option = {
+            title: {
+                text: '高校毕业生意向工作'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [
+                        '专业技术人员',
+                        '教师',
+                        '公务员',
+                        '企业经营管理人员',
+                        '研究、开发人员',
+                    ],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        min: 0,
+                        max: 100,
+                        show: true,
+                        formatter: '{value}%'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: 'Direct',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [25.1, 18.2, 14.6, 11.1, 8.1]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+
+    </script>
+
+</div>
+<div class="post text" style="margin-top: 150px">
+    <div class="desc">在具体的职业上，高校毕业生心中最理想的职业是工程师、医生、律师这一类的专业技术人员，有25.1%以之作为理想；第二位为教师，18.2%的毕业生将它作为最理想职业；第三位是公务员，14.6%的毕业生以之为最理想职业；第四位是企业经营管理人员，11.1%的毕业生选择其作为职业理想；第五位是研究、开发人员，8.1%的毕业生以之为最理想职业。</div>
+</div>
+
+<div class="post text">
+    <div class="desc">在工作的具体地点上，高校毕业生中有49.2%的最想在北京、上海、广州、深圳之外的大城市或省会城市工作，有24.1%最想在北京、上海、广州、深圳这四个一线城市工作，20.5%最想在地级市级别的中等城市工作，而想在其他地点工作的毕业生只有6.3%。</div>
+</div>
+
+
+<div class="post chart">
+    <div id="chart3" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        // 指定图表的配置项和数据
+        var option;
+
+        option = {
+            title: {
+                text: '高校毕业生意向城市'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [
+                        '除北上广深外的大城市或省会',
+                        '北上广深',
+                        '地级市等中级城市',
+                        '其他地点',
+
+                    ],
+                    axisLabel: {
+                        interval: 0,//横轴信息全部显示
+                        rotate: -45, //倾斜度 -90 至 90 默认为0
+                        margin: 5,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        min: 0,
+                        max: 100,
+                        show: true,
+                        formatter: '{value}%'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: 'Direct',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [49.2,24.1,20.5,6.3]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+</div>
+
+
+<div class="post chart">
+
+    <div id="chart4" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart4'));
+
+        // 指定图表的配置项和数据
+        var option;
+
+        option = {
+            title: {
+                text: '高校毕业生工作考虑要素'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [
+                        '职业发展前景',
+                        '工作的稳定性',
+                        '工作收入',
+                        '能否学以致用',
+                        '是否符合兴趣',
+                        '工作地点',
+                        '能否解决户口',
+
+                    ],
+                    axisLabel: {
+                        interval: 0,//横轴信息全部显示
+                        rotate: -45, //倾斜度 -90 至 90 默认为0
+                        margin: 5,
+                    },
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        min: 0,
+                        max: 100,
+                        show: true,
+                        formatter: '{value}%'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: 'Direct',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [89.1,79.9, 78.2, 69.6, 67.1, 65.1, 19.9]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+
+</div>
+<div class="post text" style="margin-top: 150px">
+    <div class="desc">在具体的职业上，高校毕业生心中最理想的职业是工程师、医生、律师这一类的专业技术人员，有25.1%以之作为理想；第二位为教师，18.2%的毕业生将它作为最理想职业；第三位是公务员，14.6%的毕业生以之为最理想职业；第四位是企业经营管理人员，11.1%的毕业生选择其作为职业理想；第五位是研究、开发人员，8.1%的毕业生以之为最理想职业。</div>
+</div>
+
+<div class="post" style="margin-top: 100px">
+</div>
+
+{%endblock%}

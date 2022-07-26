@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}{%endblock%}- 学校专区</title>
+    <link rel="stylesheet" href="/static/css/nav_std.css">
+    {%block style%}{%endblock%}
+</head>
+<body>
+    <header>
+        <a href="/"><div class="return" style="left: 20%;font-size: 20px;">返回首页</div></a>
+        <a href="/school"><div class="s_title">< 学校专区 ></div></a>
+        <a href="/school/policy"><div class="student" style="right: 20%">就业政策</div></a>
+    </header>
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+</body>
+</html>

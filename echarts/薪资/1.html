@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="echarts.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 1200px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+     var option;
+
+
+
+option = {
+    // 标题
+    title: {
+        text: '部分城市不同薪资区间的占比', // 标题名称
+		left: 'center'
+    },
+    // x轴
+    xAxis: {
+        data: ['2-3K', '3-4.5K', '4.5-6K', '6-8K', '8-10K', '10-15K', '15-20K','20-30K'], // x轴坐标名称
+    },
+    // y轴
+    yAxis: {
+	 axisLabel:{
+      formatter:function(val){
+        return val*1+"%";
+      }
+    }
+	
+	},
+    
+    tooltip: {
+        show: true, // 是否显示
+        trigger: 'axis', // 触发类型，默认数据触发，见下图，可选为：'item' | 'axis'
+    },
+  legend: { // 图例配置选项
+          orient: 'horizontal',
+          x: 'left', 
+          y: 'top',
+          data: ['上海','成都','银川']
+  },
+    series: [
+        
+        {
+            name: '上海', // 系列名称
+            type: 'line', // 类型：线
+            data: [15.2, 15, 18.1, 15.5, 10.1, 11.9, 5.4,5.7], // 数据
+           
+           
+            
+        },
+       
+		
+		{
+            name: '成都', // 系列名称
+            type: 'line', // 类型：线
+			lineStyle:{color:'#00FF00'
+			},
+            data: [4.4, 25.6, 19.2, 21.4, 13.5, 6.1, 5.9,2.1], // 数据
+            
+            
+        },
+		
+        {
+            name: '银川', // 系列名称
+            type: 'line', // 类型：线
+            data: [5.6, 29, 18.7, 21.3, 11.3, 6.4, 3.2,2.2], // 数据
+            
+            
+        },
+		
+    ]
+};
+
+
+option && myChart.setOption(option);
+
+    </script>
+  </body>
+</html>

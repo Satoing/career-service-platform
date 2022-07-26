@@ -1,0 +1,132 @@
+{% extends "nav_std.html" %} {% block title %}工作一览 {% endblock %} {%block style%}
+<style>
+    .screen {
+        width: 94.5%;
+        background-color: #27282d;
+        color: #FFF;
+        padding: 20px 30px;
+        margin: 10px 30px 0px 30px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    
+    .post {
+        width: 45%;
+        background-color: #27282d;
+        color: #FFF;
+        padding: 20px 30px;
+        margin: 10px 30px 0px 30px;
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+    }
+    
+    .jt,
+    .city,
+    .company,
+    .salary,
+    .edu {
+        display: inline-block;
+        margin: 5px 5px 10px 0;
+        font-family: 楷体;
+    }
+    
+    .jt {
+        font-size: 25px;
+    }
+    
+    .company {
+        font-family: Candyhome;
+        font-size: 35px;
+        position: absolute;
+        right: 10%;
+        height: 40px;
+    }
+    
+    .info::before {
+        content: url("/static/images/tags.png");
+    }
+    
+    .info {
+        margin-top: 10px;
+        font-size: 15px;
+        font-family: 楷体;
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    .st {
+        color: #FFF;
+        font-family: Candyhome;
+        font-size: 20px;
+        margin: 7px 0;
+        display: inline;
+    }
+    
+    .line {
+        display: inline-block;
+    }
+    
+    .st a {
+        font-family: 楷体;
+    }
+</style>
+{%endblock%} {%block content%}
+<div class="screen">
+    <div class="line">
+        <a href="/student/job_info/city"><p class="st">城市：</p></a>
+        <a style="font-family: 楷体" href="?city=1"> 北京&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=2"> 成都&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=3"> 广州&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=4"> 杭州&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=5"> 厦门&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=6"> 上海&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=7"> 深圳&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=8"> 苏州&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=9"> 武汉&nbsp; </a>
+        <a style="font-family: 楷体" href="?city=10"> 西安&nbsp; </a>
+    </div><br><br>
+    <div class="line">
+        <a href="/student/job_info/category"><p class="st">分类：</p></a>
+        <a style="font-family: 楷体" href="?category=1"> C++&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=2"> Web前端&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=3"> 测试工程师&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=4"> 产品经理&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=5"> 产品专员&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=6"> UI设计师&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=7"> 网页设计师&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=8"> 财务&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=9"> 网络推广&nbsp; </a>
+        <a style="font-family: 楷体" href="?category=10"> 客服&nbsp; </a>
+    </div><br><br>
+    <div class="line">
+        <a href="/student/job_info/salary"><p class="st">薪资：</p></a>
+        <a style="font-family: 楷体" href="?salary=1"> 3-5K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=2"> 6-8K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=3"> 9-12K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=4"> 12-18K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=5"> 15-22K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=6"> 20-30K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=7"> 24-35K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=8"> 30-48K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=9"> 35-50K&nbsp; </a>
+        <a style="font-family: 楷体" href="?salary=10"> 50-80K&nbsp; </a>
+    </div>
+</div>
+    {% for job in jobs %}
+    <div class="post">
+        <div class="jt">{{job.job_name}}</div>
+        <div class="city">[ {{job.city}} ]</div>
+        <div class="company">{{job.company}}</div><br>
+        <div class="salary">{{job.salary}}</div>
+        <div class="edu">{{job.edu}}</div>
+        <hr>
+            <div class="info">{{job.category}}</div>
+    </div>
+    {% endfor %}
+
+{%endblock%}

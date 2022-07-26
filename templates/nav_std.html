@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}{%endblock%}- 学生专区</title>
+    <link rel="stylesheet" href="/static/css/nav_std.css">
+    {%block style%}{%endblock%}
+</head>
+<body>
+    <header>
+        <a href="/"><div class="return">首页</div></a>
+        <a href="/student/job_info"><div class="school">职业信息</div></a>
+        <a href="/student"><div class="s_title">< 学生专区 ></div></a>
+        <a href="/student/job_analyse"><div class="student">职业分析</div></a>
+        {%block login%}
+        {% if user == '' %}
+        <a href="/student/login"><div class="login">登录</div></a>
+        {% else %}
+        <div class="login">欢迎{{ user }}</div>
+        {% endif %}
+        {%endblock%}
+    </header>
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+</body>
+</html>
