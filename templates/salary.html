@@ -1,7 +1,5 @@
-{% extends "nav_std.html" %}
-{% block title %}薪资分析 {% endblock %}
-{%block style%}
-<script src="/static/js/echarts.js"></script>
+{% extends "nav_std.html" %} {% block title %}薪资分析 {% endblock %} {%block style%}
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.js"></script>
 <style>
     .screen {
         width: 80%;
@@ -13,8 +11,7 @@
         position: relative;
     }
 </style>
-{%endblock%}
-{%block content%}
+{%endblock%} {%block content%}
 <div id="main" style="width: 1200px;height:400px;margin: 30px 0 30px 50px"></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
@@ -33,13 +30,13 @@
         },
         // x轴
         xAxis: {
-            data: ['2-3K', '3-4.5K', '4.5-6K', '6-8K', '8-10K', '10-15K', '15-20K','20-30K'], // x轴坐标名称
+            data: ['2-3K', '3-4.5K', '4.5-6K', '6-8K', '8-10K', '10-15K', '15-20K', '20-30K'], // x轴坐标名称
         },
         // y轴
         yAxis: {
-            axisLabel:{
-                formatter:function(val){
-                    return val*1+"%";
+            axisLabel: {
+                formatter: function(val) {
+                    return val * 1 + "%";
                 }
             }
 
@@ -53,14 +50,14 @@
             orient: 'horizontal',
             x: 'left',
             y: 'top',
-            data: ['上海','成都','银川']
+            data: ['上海', '成都', '银川']
         },
         series: [
 
             {
                 name: '上海', // 系列名称
                 type: 'line', // 类型：线
-                data: [15.2, 15, 18.1, 15.5, 10.1, 11.9, 5.4,5.7], // 数据
+                data: [15.2, 15, 18.1, 15.5, 10.1, 11.9, 5.4, 5.7], // 数据
 
 
 
@@ -70,9 +67,10 @@
             {
                 name: '成都', // 系列名称
                 type: 'line', // 类型：线
-                lineStyle:{color:'#00FF00'
+                lineStyle: {
+                    color: '#00FF00'
                 },
-                data: [4.4, 25.6, 19.2, 21.4, 13.5, 6.1, 5.9,2.1], // 数据
+                data: [4.4, 25.6, 19.2, 21.4, 13.5, 6.1, 5.9, 2.1], // 数据
 
 
             },
@@ -80,7 +78,7 @@
             {
                 name: '银川', // 系列名称
                 type: 'line', // 类型：线
-                data: [5.6, 29, 18.7, 21.3, 11.3, 6.4, 3.2,2.2], // 数据
+                data: [5.6, 29, 18.7, 21.3, 11.3, 6.4, 3.2, 2.2], // 数据
 
 
             },
@@ -90,7 +88,6 @@
 
 
     option && myChart.setOption(option);
-
 </script>
 
 <div class="screen">

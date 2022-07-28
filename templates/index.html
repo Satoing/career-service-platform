@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>职业能力大数据服务平台</title>
     <link rel="stylesheet" href="/static/css/index.css">
-    <script src='/static/js/echarts.min.js'></script>
+    <script src='https://lib.baomitu.com/echarts/4.9.0-rc.1/echarts.min.js'></script>
     <script src='/static/js/china.js'></script>
     <style>
         #china_chart {
@@ -18,9 +18,13 @@
 
 <body>
     <header>
-        <a href="/school"><div class="school">学校专区</div></a>
+        <a href="/school">
+            <div class="school">学校专区</div>
+        </a>
         <div class="title">职业能力大数据服务平台</div>
-        <a href="/student"><div class="student">学生专区</div></a>
+        <a href="/student">
+            <div class="student">学生专区</div>
+        </a>
     </header>
     <section class="mainbox">
         <div class="column">
@@ -157,11 +161,10 @@
                     }, {
                         name: '澳门',
                         value: 9851
-                    },
-                        {
-                            name: '天津',
-                            value: 8414
-                        }];
+                    }, {
+                        name: '天津',
+                        value: 8414
+                    }];
 
                     var option = {
                         // title: {
@@ -239,7 +242,7 @@
     </section>
 
     <script src="/static/js/flexible.js"></script>
-    <script src="/static/js/echarts.min.js"></script>
+    <script src="https://lib.baomitu.com/echarts/4.9.0-rc.1/echarts.min.js"></script>
     <script src="/static/js/china.js"></script>
     <script src="/static/js/myMap.js"></script>
 
@@ -299,8 +302,8 @@
                     axisLine: {
                         lineStyle: {
                             color: "rgba(255,255,255,.1)"
-                            // width: 1,
-                            // type: "solid"
+                                // width: 1,
+                                // type: "solid"
                         }
                     },
                     splitLine: {
@@ -330,12 +333,10 @@
             var dataAll = [{
                 year: "2019",
                 data: [200, 300, 300, 900, 1500, 1200, 600]
-            },
-                {
-                    year: "2020",
-                    data: [300, 400, 350, 800, 1800, 1400, 700]
-                }
-            ];
+            }, {
+                year: "2020",
+                data: [300, 400, 350, 800, 1800, 1400, 700]
+            }];
 
             document.querySelector(".bar h2").addEventListener("click", function(e) {
                 var i = e.target == this.children[0] ? 0 : 1;
@@ -395,24 +396,19 @@
                     data: [{
                         value: 1,
                         name: "0岁以下"
-                    },
-                        {
-                            value: 4,
-                            name: "20-29岁"
-                        },
-                        {
-                            value: 2,
-                            name: "30-39岁"
-                        },
-                        {
-                            value: 2,
-                            name: "40-49岁"
-                        },
-                        {
-                            value: 1,
-                            name: "50岁以上"
-                        }
-                    ]
+                    }, {
+                        value: 4,
+                        name: "20-29岁"
+                    }, {
+                        value: 2,
+                        name: "30-39岁"
+                    }, {
+                        value: 2,
+                        name: "40-49岁"
+                    }, {
+                        value: 1,
+                        name: "50岁以上"
+                    }]
                 }]
             };
 
@@ -428,7 +424,7 @@
             var myChart = echarts.init(document.querySelector(".bar1 .chart"));
 
             var data = [34, 27, 20, 9, 9];
-            var titlename = ["产品", "销售","技术", "设计", "运营"];
+            var titlename = ["产品", "销售", "技术", "设计", "运营"];
             var valdata = ["", "", "", "", ""];
             var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
             option = {
@@ -469,19 +465,17 @@
                             }
                         }
                     }
-                },
-                    {
-                        show: true,
-                        inverse: true,
-                        data: valdata,
-                        axisLabel: {
-                            textStyle: {
-                                fontSize: 12,
-                                color: "#fff"
-                            }
+                }, {
+                    show: true,
+                    inverse: true,
+                    data: valdata,
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: "#fff"
                         }
                     }
-                ],
+                }],
                 series: [{
                     name: "条",
                     type: "bar",
@@ -505,24 +499,22 @@
                             formatter: "{c}%"
                         }
                     }
-                },
-                    {
-                        name: "框",
-                        type: "bar",
-                        yAxisIndex: 1,
-                        barCategoryGap: 50,
-                        data: [100, 100, 100, 100, 100],
-                        barWidth: 15,
-                        itemStyle: {
-                            normal: {
-                                color: "none",
-                                borderColor: "#00c1de",
-                                borderWidth: 3,
-                                barBorderRadius: 15
-                            }
+                }, {
+                    name: "框",
+                    type: "bar",
+                    yAxisIndex: 1,
+                    barCategoryGap: 50,
+                    data: [100, 100, 100, 100, 100],
+                    barWidth: 15,
+                    itemStyle: {
+                        normal: {
+                            color: "none",
+                            borderColor: "#00c1de",
+                            borderWidth: 3,
+                            barBorderRadius: 15
                         }
                     }
-                ]
+                }]
             };
 
             // 使用刚指定的配置项和数据显示图表。
@@ -573,36 +565,28 @@
                     data: [{
                         value: 20,
                         name: "西安"
-                    },
-                        {
-                            value: 26,
-                            name: "北京"
-                        },
-                        {
-                            value: 24,
-                            name: "上海"
-                        },
-                        {
-                            value: 25,
-                            name: "成都"
-                        },
-                        {
-                            value: 20,
-                            name: "武汉"
-                        },
-                        {
-                            value: 25,
-                            name: "杭州"
-                        },
-                        {
-                            value: 30,
-                            name: "深圳"
-                        },
-                        {
-                            value: 42,
-                            name: "广州"
-                        }
-                    ],
+                    }, {
+                        value: 26,
+                        name: "北京"
+                    }, {
+                        value: 24,
+                        name: "上海"
+                    }, {
+                        value: 25,
+                        name: "成都"
+                    }, {
+                        value: 20,
+                        name: "武汉"
+                    }, {
+                        value: 25,
+                        name: "杭州"
+                    }, {
+                        value: 30,
+                        name: "深圳"
+                    }, {
+                        value: 42,
+                        name: "广州"
+                    }],
                     // 修饰饼形图文字相关的样式 label对象
                     label: {
                         fontSize: 10
@@ -633,8 +617,8 @@
         })(function() {
             var dt = new Date();
             document.querySelector(".showTime").innerText =
-                "7"+" - "+
-                dt.getDate()+" | "+
+                "7" + " - " +
+                dt.getDate() + " | " +
                 dt.getHours() + " - " +
                 dt.getMinutes() + " - " +
                 dt.getSeconds() + "";

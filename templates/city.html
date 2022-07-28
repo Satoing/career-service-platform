@@ -1,11 +1,11 @@
-{% extends "nav_std.html" %}
-{% block title %}城市分析 {% endblock %}
-{%block style%}
-<script src="/static/js/echarts.js"></script>
+{% extends "nav_std.html" %} {% block title %}城市分析 {% endblock %} {%block style%}
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.js"></script>
 <style>
-    #main2,#main3{
+    #main2,
+    #main3 {
         display: inline-block;
     }
+    
     .screen {
         width: 80%;
         background-color: #27282d;
@@ -16,8 +16,7 @@
         position: relative;
     }
 </style>
-{%endblock%}
-{%block content%}
+{%endblock%} {%block content%}
 <div class="screen">
     <p style="font-family: 楷体">从城市群看，我国高等院校毕业生在五大城市群高度集中，五大城市群总毕业生规模占到全量的48.6%，经济总量也占到全国的60%以上。从平均薪资来看，这些主要城市在全国范围内也处于高位水平。因此这些城市对毕业生有更大的吸引力，高校毕业生多数倾向到大城市发展。</p>
 </div>
@@ -53,20 +52,17 @@
         yAxis: {
             type: 'value'
         },
-        series: [
-            {
-                data: [12858, 9291, 10410, 10991, 9499, 12679, 11976, 9730,9440, 8685],
-                type: 'bar',
-                showBackground: true,
-                backgroundStyle: {
-                    color: 'rgba(180, 180, 180, 0.2)'
-                }
+        series: [{
+            data: [12858, 9291, 10410, 10991, 9499, 12679, 11976, 9730, 9440, 8685],
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+                color: 'rgba(180, 180, 180, 0.2)'
             }
-        ]
+        }]
     };
 
     option && myChart.setOption(option);
-
 </script>
 
 
@@ -91,37 +87,52 @@
         //     orient: 'vertical',
         //     left: 'left'
         // },
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                radius: '50%',
-                data: [
-                    { value: 12858, name: '北京' },
-                    { value: 9291, name: '成都' },
-                    { value: 10410, name: '广州' },
-                    { value: 10991, name: '杭州' },
-                    { value: 9499, name: '厦门' },
-                    { value: 12679, name: '上海' },
-                    { value: 11976, name: '深圳' },
-                    { value: 9730, name: '苏州' },
-                    { value: 9440, name: '武汉' },
-                    { value: 8685, name: '西安' }
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
+        series: [{
+            name: 'Access From',
+            type: 'pie',
+            radius: '50%',
+            data: [{
+                value: 12858,
+                name: '北京'
+            }, {
+                value: 9291,
+                name: '成都'
+            }, {
+                value: 10410,
+                name: '广州'
+            }, {
+                value: 10991,
+                name: '杭州'
+            }, {
+                value: 9499,
+                name: '厦门'
+            }, {
+                value: 12679,
+                name: '上海'
+            }, {
+                value: 11976,
+                name: '深圳'
+            }, {
+                value: 9730,
+                name: '苏州'
+            }, {
+                value: 9440,
+                name: '武汉'
+            }, {
+                value: 8685,
+                name: '西安'
+            }],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
             }
-        ]
+        }]
     };
 
     option && myChart.setOption(option);
-
-
 </script>
 
 
@@ -148,59 +159,52 @@
             y: 80,
             y2: 60
         },
-        xAxis: [
-            {
-                type: 'category',
-                show: false,
-                data: ['成渝', '京津冀', '长江中游', '长三角', '珠三角']
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-                show: false
-            }
-        ],
-        series: [
-            {
-                name: 'ECharts例子个数统计',
-                type: 'bar',
-                itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            // build a color map as your need.
-                            var colorList = [
-                                '#C1232B',
-                                '#B5C334',
-                                '#FCCE10',
-                                '#E87C25',
-                                '#27727B',
-                                '#FE8463',
-                                '#9BCA63',
-                                '#FAD860',
-                                '#F3A43B',
-                                '#60C0DD',
-                                '#D7504B',
-                                '#C6E579',
-                                '#F4E001',
-                                '#F0805A',
-                                '#26C0C0'
-                            ];
-                            return colorList[params.dataIndex];
-                        },
-                        label: {
-                            show: true,
-                            position: 'top',
-                            formatter: '{b}\n{c}%' //这是关键，在需要的地方加上就行了
-                        }
+        xAxis: [{
+            type: 'category',
+            show: false,
+            data: ['成渝', '京津冀', '长江中游', '长三角', '珠三角']
+        }],
+        yAxis: [{
+            type: 'value',
+            show: false
+        }],
+        series: [{
+            name: 'ECharts例子个数统计',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    color: function(params) {
+                        // build a color map as your need.
+                        var colorList = [
+                            '#C1232B',
+                            '#B5C334',
+                            '#FCCE10',
+                            '#E87C25',
+                            '#27727B',
+                            '#FE8463',
+                            '#9BCA63',
+                            '#FAD860',
+                            '#F3A43B',
+                            '#60C0DD',
+                            '#D7504B',
+                            '#C6E579',
+                            '#F4E001',
+                            '#F0805A',
+                            '#26C0C0'
+                        ];
+                        return colorList[params.dataIndex];
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{b}\n{c}%' //这是关键，在需要的地方加上就行了
                     }
-                },
-                data: [7.9, 8.9, 11.9, 13.8, 6.0]
-            }
-        ]
+                }
+            },
+            data: [7.9, 8.9, 11.9, 13.8, 6.0]
+        }]
     };
 
     option && myChart.setOption(option);
-
 </script>
 {%endblock%}
